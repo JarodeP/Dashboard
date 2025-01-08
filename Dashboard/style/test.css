@@ -1,0 +1,333 @@
+/* Définition des couleurs de la palette */
+:root {
+    --bleu-principal: #004a90; /* Bleu principal */
+    --vert-accent: #56A55F; /* Vert accent */
+    --gris-fond: #F5F7FA; /* Gris clair pour fond */
+    --bleu-fonce: #003A70; /* Bleu foncé */
+    --blanc: #FFFFFF;
+    --gris-texte: #5B5B5B;
+}
+
+/* Applique à l'ensemble de la page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+body, html {
+    overflow-x: hidden;
+    background-color: var(--gris-fond);
+    color: var(--gris-texte);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Assure que la page occupe toute la hauteur */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bleu-principal);
+    padding: 20px 40px; /* Augmente l'espacement autour de l'en-tête */
+    color: var(--blanc);
+    z-index: 1;
+}
+
+.logo img {
+    height: 70px;
+    width: auto;
+    margin-left: 30px;
+}
+
+.search-container {
+    position: relative;
+    width: fit-content; /* Pour s'adapter automatiquement à la largeur de la barre de recherche */
+  }
+  
+  .search-bar {
+    width: 800px; /* Exemple de largeur fixe */
+    margin: 0 130px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid var(--bleu-fonce);
+}
+  
+  .search-results {
+    display: none; /* Cacher par défaut */
+    position: absolute;
+    top: 100%; /* Place les résultats juste en dessous de la barre de recherche */
+    left: 0;
+    background: var(--bleu-fonce);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+    z-index: 1;
+    width: 100%; /* Prend la même largeur que la barre de recherche */
+  }
+  
+  .option {
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .option:hover {
+    background-color: var(--bleu-principal);
+  }
+  
+
+
+
+
+button {
+    padding: 10px 20px;
+    background-color: var(--bleu-fonce);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--bleu-clair);
+}
+
+
+.pdp-button {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: auto; /* Déplace vers la droite */
+    margin-right: 20px; /* Optionnel : espace à droite */
+}
+
+
+.pdp-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Permet de redimensionner en fonction du container */
+    border-radius: 100%;
+}
+
+/* Ajustement pour la disposition principale */
+.container {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    flex: 1;
+}
+.sidebar {
+    width: 270px;
+    background-color: var(--bleu-fonce);
+    color: var(--blanc);
+    padding: 30px;
+    height: 170vh; /* Utiliser 100vh pour couvrir toute la hauteur de la fenêtre */
+    position: absolute;
+    top: 0; /* Aligner la sidebar en haut */
+    left: 0;
+    z-index: 0;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0; /* Enlever les marges par défaut */
+    margin-top: 94px; /* Espacement sous l'en-tête */
+}
+
+.sidebar ul li {
+    margin-bottom: 35px;
+}
+
+.sidebar ul li a {
+    border-radius: 5px; /* Arrondit les coins pour un effet visuel plus doux */
+    text-decoration: none;
+    color: var(--blanc);
+    font-size: large;
+    padding: 10px 15px; /* Ajoute un padding pour plus d'espace autour du texte */
+    display: block; /* S'assure que l'élément prend tout l'espace du <li> */
+    transition: color 0.3s, background-color 0.3s, transform 0.1s;
+}
+
+.sidebar ul li a:hover {
+    background-color: var(--vert-accent);
+    color: var(--noir); /* Change la couleur du texte au survol */
+    transform: scale(1.05); /* Légère mise à l'échelle pour attirer l'attention */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Ajoute une ombre pour un effet de relief */
+}
+
+/* Conteneur principal */
+h1 {
+    margin-left: 350px;
+}
+.main-content {
+    margin-left: 270px;
+    flex-grow: 1;
+    padding: 30px;
+    background-color: var(--gris-fond);
+    min-height: calc(100vh - 74px);
+    width: calc(100% - 270px);
+}
+
+/* Mise en forme des données */
+.data {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.data-item {
+    background-color: var(--bleu-principal);
+    color: var(--blanc);
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 18px;
+    flex: 1;
+    min-width: 150px;
+}
+
+/* Grille pour les graphiques */
+.graphiques {
+    visibility: hidden;
+    opacity: 0;
+}
+
+
+.graphs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.graphs div:nth-child(1),
+.graphs div:nth-child(2) {
+    align-self: start;
+}
+
+.graphs div:nth-child(3),
+.graphs div:nth-child(4) {
+    align-self: end;
+}
+
+/* Bouton de connexion */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.login-button {
+    background-color: var(--vert-accent);
+    color: var(--blanc);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Texte supplémentaire */
+.extra-text {
+    margin-top: 20px;
+    margin-left: 3.5%;
+    text-align: center;
+    font-size: 16px;
+    color: var(--gris-texte);
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+/* Pied de page */
+.footer-container {
+    background-color: var(--bleu-principal);
+    color: var(--blanc);
+    text-align: center;
+    height: 55px; /* Ajuste la hauteur selon ton besoin */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto; /* Permet au footer de rester en bas de la page */
+    z-index: 1;
+}
+
+/* Style des graphiques */
+.chart-container {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    min-height: 300px;
+    max-height: 500px;
+    margin: 0 auto;
+}
+.carte {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.Graph_chartjs {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.chart-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+#chart_div, #barchart, #donutchart {
+    width: 600px;
+    height: 400px;
+}
+#piechart {
+    width: 600px;
+    height: 400px;
+    padding-right: 8%;
+}
+.side-image {
+    width: 500px;
+    height: auto;
+}
+.graphique-dynamique {
+    display: none;
+}
+.hidden {
+    display: none;
+}
+
+.graph-interact img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+#button-container {
+    margin-top: 5px;
+    margin-right: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Ajoute un léger espace entre les boutons */
+}
